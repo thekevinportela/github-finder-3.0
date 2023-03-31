@@ -1,0 +1,46 @@
+{
+  "project_info": {
+    "project_number": "1021990125063",
+    "project_id": "github-finder-1d140",
+    "storage_bucket": "github-finder-1d140.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1021990125063:android:682a1b3cdf958c56caf4a2",
+        "android_client_info": {
+          "package_name": "com.thekevinportela.GithubFinderRN"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1021990125063-s0b12nfsa6mda2lkptshp2g5m4qptksa.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAhzcGQ8EoLsSXioSzslPeD4cVY57wEIOU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1021990125063-s0b12nfsa6mda2lkptshp2g5m4qptksa.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "1021990125063-2kec8n71nt6knl3pt14fmbb6b7lvokv1.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.thekevinportela.GithubFinderRN"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

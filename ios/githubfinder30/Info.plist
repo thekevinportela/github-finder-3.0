@@ -31,6 +31,12 @@
       <dict>
         <key>CFBundleURLSchemes</key>
         <array>
+          <string>com.googleusercontent.apps.1021990125063-2kec8n71nt6knl3pt14fmbb6b7lvokv1</string>
+        </array>
+      </dict>
+      <dict>
+        <key>CFBundleURLSchemes</key>
+        <array>
           <string>exp+github-finder-3.0</string>
         </array>
       </dict>
