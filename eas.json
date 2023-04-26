@@ -9,8 +9,7 @@
         "gradleCommand": ":app:assembleDebug"
       },
       "ios": {
-        "buildConfiguration": "Debug",
-        "ascAppId": "9U27CZTHY3"
+        "buildConfiguration": "Debug"
       }
     },
     "preview": {
@@ -19,6 +18,9 @@
     "production": {
       "android": {
         "autoIncrement": "versionCode"
+      },
+      "ios": {
+        "ascAppId": "9U27CZTHY3"
       }
     }
   },
