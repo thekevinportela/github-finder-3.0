@@ -20,7 +20,7 @@
         "autoIncrement": "versionCode"
       },
       "ios": {
-        "autoIncrement": "version"
+        "autoIncrement": "buildNumber"
       }
     }
   },
