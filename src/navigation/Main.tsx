@@ -1,13 +1,14 @@
-import {createNativeStackNavigator} from '@react-navigation/native-stack';
-import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
-import {Home} from '../screens/Home';
-import {Repo} from '../screens/Repo';
-import {User} from '../screens/User';
-import {Settings} from '../screens/Settings';
-import {FavouriteIcon, Icon, SearchIcon, Text, useTheme} from 'native-base';
-import Ionicons from 'react-native-vector-icons/Ionicons';
-import {Favorites} from '../screens/Favorites';
-import {useFavoritesListener} from '../stores/favoritesStore';
+import { createNativeStackNavigator } from "@react-navigation/native-stack";
+import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
+import { Home } from "../screens/Home";
+import { Repo } from "../screens/Repo";
+import { User } from "../screens/User";
+import { Settings } from "../screens/Settings";
+import { FavouriteIcon, Icon, SearchIcon, Text, useTheme } from "native-base";
+import Ionicons from "react-native-vector-icons/Ionicons";
+import { Favorites } from "../screens/Favorites";
+import { useFavoritesListener } from "../stores/favoritesStore";
+import { Platform } from "react-native";
 
 const Stack = createNativeStackNavigator();
 const Tab = createBottomTabNavigator();
@@ -18,15 +19,15 @@ const Main = () => {
   return (
     <Stack.Navigator initialRouteName="HomeTabs">
       <Stack.Screen
-        options={{headerShown: false}}
+        options={{ headerShown: false }}
         name="HomeTabs"
         component={HomeTabs}
       />
       <Stack.Screen
-        options={({route}) => ({
+        options={({ route }) => ({
           headerTitle: route.params,
-          headerTintColor: '#fff',
-          headerStyle: {backgroundColor: 'black'},
+          headerTintColor: "#fff",
+          headerStyle: { backgroundColor: "black" },
         })}
         name="User"
         component={User}
@@ -35,7 +36,7 @@ const Main = () => {
       <Stack.Screen
         options={{
           headerShown: false,
-          presentation: 'modal',
+          presentation: "modal",
         }}
         name="Repo"
         component={Repo}
@@ -47,30 +48,31 @@ const Main = () => {
 export default Main;
 
 const HomeTabs = () => {
-  const {colors} = useTheme();
+  const { colors } = useTheme();
   return (
     <Tab.Navigator
       screenOptions={{
         headerShown: false,
+
         tabBarStyle: {
-          backgroundColor: colors.gray[900],
-          // paddingTop: 20,
-          paddingBottom: 25,
+          backgroundColor:
+            Platform.OS === "android" ? "black" : colors.gray[900],
         },
         // tabBarLabelStyle: {paddingTop: },
-      }}>
+      }}
+    >
       <Tab.Screen
         name="Favorites"
         component={Favorites}
         options={{
-          tabBarIcon: ({focused}) => (
+          tabBarIcon: ({ focused }) => (
             <FavouriteIcon
-              size={focused ? '7' : '6'}
-              color={focused ? 'white' : colors.gray[600]}
+              size={focused ? "7" : "6"}
+              color={focused ? "white" : colors.gray[600]}
             />
           ),
-          headerStyle: {backgroundColor: 'black'},
-          headerTintColor: 'white',
+          headerStyle: { backgroundColor: "black" },
+          headerTintColor: "white",
           headerShown: true,
           tabBarActiveTintColor: colors.white,
           tabBarInactiveTintColor: colors.gray[600],
@@ -80,10 +82,10 @@ const HomeTabs = () => {
         name="Home"
         component={Home}
         options={{
-          tabBarIcon: ({focused}) => (
+          tabBarIcon: ({ focused }) => (
             <SearchIcon
-              size={focused ? '7' : '6'}
-              color={focused ? 'white' : colors.gray[600]}
+              size={focused ? "7" : "6"}
+              color={focused ? "white" : colors.gray[600]}
             />
           ),
           tabBarActiveTintColor: colors.white,
@@ -94,12 +96,12 @@ const HomeTabs = () => {
         name="Settings"
         component={Settings}
         options={{
-          tabBarIcon: ({focused}) => (
+          tabBarIcon: ({ focused }) => (
             <Icon
               as={Ionicons}
-              name={'ios-settings'}
-              size={focused ? '7' : '6'}
-              color={focused ? 'white' : colors.gray[600]}
+              name={"ios-settings"}
+              size={focused ? "7" : "6"}
+              color={focused ? "white" : colors.gray[600]}
             />
           ),
           tabBarActiveTintColor: colors.white,

@@ -76,7 +76,7 @@ const User: React.FC<IUserProps> = ({ route }) => {
     hireable,
   } = data?.user;
   const userIsFavorited = favorites.find((fav) => fav.login === login);
-  console.log("IS FAVORITED?", userIsFavorited);
+  // console.log("IS FAVORITED?", userIsFavorited);
   function handleHeart() {
     if (userIsFavorited) {
       deleteFavorite(login);

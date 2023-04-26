@@ -1,33 +1,33 @@
-import {Box} from 'native-base';
-import React, {useEffect} from 'react';
-import {FlatList} from 'react-native';
-import {useUsers} from '../hooks/reactQueryHooks';
-import {Loader} from './Loader';
-import {UserItem} from './UserItem';
-import {UserList} from './UserList';
+import { Box } from "native-base";
+import React, { useEffect } from "react";
+import { FlatList } from "react-native";
+import { useUsers } from "../hooks/reactQueryHooks";
+import { Loader } from "./Loader";
+import { UserItem } from "./UserItem";
+import { UserList } from "./UserList";
 
 export type IUserResultsProps = {
   search: string;
 };
 
-const UserResults: React.FC<IUserResultsProps> = ({search}) => {
-  const {status, data, refetch} = useUsers(search);
+const UserResults: React.FC<IUserResultsProps> = ({ search }) => {
+  const { status, data, refetch } = useUsers(search);
 
   useEffect(() => {
-    if (search !== '') {
+    if (search !== "") {
       refetch();
     }
   }, [search]);
 
-  console.log('data', data);
+  // console.log('data', data);
   // if (status === 'loading') {
   //   return <Loader />;
   // }
 
   return (
     <Box flex={1}>
-      {status === 'loading' && (
-        <Box position={'absolute'} h="100%" w="100%">
+      {status === "loading" && (
+        <Box position={"absolute"} h="100%" w="100%">
           <Loader />
         </Box>
       )}
@@ -36,4 +36,4 @@ const UserResults: React.FC<IUserResultsProps> = ({search}) => {
   );
 };
 
-export {UserResults};
+export { UserResults };

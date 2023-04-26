@@ -46,13 +46,10 @@ const useFavoritesStore = create<UseFavoritesState>()(
         });
       },
       deleteFavorite: (login) => {
-        firestore()
-          .collection("favorites")
-          .doc(login)
-          .delete()
-          .then(() => {
-            console.log("Favorite Deleted");
-          });
+        firestore().collection("favorites").doc(login).delete();
+        // .then(() => {
+        //   console.log("Favorite Deleted");
+        // });
       },
     }),
     {

@@ -1,5 +1,5 @@
-import {useNavigation} from '@react-navigation/native';
-import {NativeStackNavigationProp} from '@react-navigation/native-stack';
+import { useNavigation } from "@react-navigation/native";
+import { NativeStackNavigationProp } from "@react-navigation/native-stack";
 import {
   Box,
   Button,
@@ -13,11 +13,11 @@ import {
   Text,
   Icon,
   WarningOutlineIcon,
-} from 'native-base';
-import FontAwesome5Icons from 'react-native-vector-icons/FontAwesome5';
-import React, {useState} from 'react';
-import {useForm, Controller} from 'react-hook-form';
-import useAuthStore from '../stores/auth';
+} from "native-base";
+import FontAwesome5Icons from "react-native-vector-icons/FontAwesome5";
+import React, { useState } from "react";
+import { useForm, Controller } from "react-hook-form";
+import useAuthStore from "../stores/auth";
 
 export type ILoginProps = {};
 
@@ -25,11 +25,11 @@ const Login: React.FC<ILoginProps> = ({}) => {
   const {
     control,
     handleSubmit,
-    formState: {errors},
+    formState: { errors },
   } = useForm({
     defaultValues: {
-      email: '',
-      password: '',
+      email: "",
+      password: "",
     },
   });
 
@@ -37,13 +37,13 @@ const Login: React.FC<ILoginProps> = ({}) => {
 
   const navigation = useNavigation<NativeStackNavigationProp<any>>();
 
-  const login = useAuthStore(state => state.login);
-  const onSubmit = (data: {email: string; password: string}) => {
+  const login = useAuthStore((state) => state.login);
+  const onSubmit = (data: { email: string; password: string }) => {
     login(data.email, data.password);
   };
 
   return (
-    <Center flex={1} w="100%" bg={'black'}>
+    <Center flex={1} w="100%" bg={"black"}>
       <Box safeArea p="2" py="8" w="90%" maxW="290">
         <Heading size="lg" fontWeight="600" color="white">
           Welcome
@@ -57,28 +57,29 @@ const Login: React.FC<ILoginProps> = ({}) => {
             name="email"
             control={control}
             rules={{
-              required: 'Please Enter Your Email',
+              required: "Please Enter Your Email",
               pattern: {
                 value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i,
-                message: 'Please Enter a Valid Email Address',
+                message: "Please Enter a Valid Email Address",
               },
             }}
             render={({
-              field: {onChange, onBlur, value},
-              fieldState: {error},
+              field: { onChange, onBlur, value },
+              fieldState: { error },
             }) => (
               <FormControl isInvalid={error ? true : false}>
-                <FormControl.Label _text={{color: 'white'}}>
+                <FormControl.Label _text={{ color: "white" }}>
                   Email
                 </FormControl.Label>
                 <Input
                   onBlur={onBlur}
-                  color={'white'}
+                  color={"white"}
                   value={value}
                   onChangeText={onChange}
                 />
                 <FormControl.ErrorMessage
-                  leftIcon={<WarningOutlineIcon size="xs" />}>
+                  leftIcon={<WarningOutlineIcon size="xs" />}
+                >
                   {error?.message}
                 </FormControl.ErrorMessage>
               </FormControl>
@@ -89,38 +90,39 @@ const Login: React.FC<ILoginProps> = ({}) => {
             name="password"
             control={control}
             rules={{
-              required: 'Please Enter Your Password',
+              required: "Please Enter Your Password",
               minLength: {
                 value: 8,
-                message: 'Password must be atleast 8 characters long',
+                message: "Password must be atleast 8 characters long",
               },
             }}
             render={({
-              field: {onChange, onBlur, value},
-              fieldState: {error},
+              field: { onChange, onBlur, value },
+              fieldState: { error },
             }) => (
               <FormControl isInvalid={error ? true : false}>
-                <FormControl.Label _text={{color: 'white'}}>
+                <FormControl.Label _text={{ color: "white" }}>
                   Password
                 </FormControl.Label>
                 <Input
                   onBlur={onBlur}
                   value={value}
                   onChangeText={onChange}
-                  type={togglePassword ? 'text' : 'password'}
-                  color={'white'}
+                  type={togglePassword ? "text" : "password"}
+                  color={"white"}
                   InputRightElement={
                     <Icon
                       onPress={() => setTogglePassword(!togglePassword)}
                       as={FontAwesome5Icons}
-                      name={togglePassword ? 'eye-slash' : 'eye'}
+                      name={togglePassword ? "eye-slash" : "eye"}
                       mr={3}
                     />
                   }
                 />
 
                 <FormControl.ErrorMessage
-                  leftIcon={<WarningOutlineIcon size="xs" />}>
+                  leftIcon={<WarningOutlineIcon size="xs" />}
+                >
                   {error?.message}
                 </FormControl.ErrorMessage>
               </FormControl>
@@ -131,15 +133,16 @@ const Login: React.FC<ILoginProps> = ({}) => {
           </Button>
           <HStack mt="6" justifyContent="center">
             <Text fontSize="sm" color="white">
-              I'm a new user.{' '}
+              I'm a new user.{" "}
             </Text>
             <Link
               _text={{
-                color: 'indigo.500',
-                fontWeight: 'medium',
-                fontSize: 'sm',
+                color: "indigo.500",
+                fontWeight: "medium",
+                fontSize: "sm",
               }}
-              onPress={() => navigation.replace('Register')}>
+              onPress={() => navigation.replace("Register")}
+            >
               Sign Up
             </Link>
           </HStack>
@@ -149,4 +152,4 @@ const Login: React.FC<ILoginProps> = ({}) => {
   );
 };
 
-export {Login};
+export { Login };
