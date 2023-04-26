@@ -18,13 +18,14 @@
     "production": {
       "android": {
         "autoIncrement": "versionCode"
-      },
-      "ios": {
-        "ascAppId": "9U27CZTHY3"
       }
     }
   },
   "submit": {
-    "production": {}
+    "production": {
+      "ios": {
+        "ascAppId": "9U27CZTHY3"
+      }
+    }
   }
 }
