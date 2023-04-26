@@ -18,6 +18,9 @@
     "production": {
       "android": {
         "autoIncrement": "versionCode"
+      },
+      "ios": {
+        "autoIncrement": "version"
       }
     }
   },
